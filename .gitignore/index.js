@@ -24,7 +24,7 @@ client.login(process.env.TOKEN);
         
 
 
-
+if(ctx.message.author.id == '457858896988733451') {
 
 // Commande de Kick
         client.on('message', message => {
@@ -290,6 +290,7 @@ message.channel.send("IP LHOST=" + message.content.replace('/lhost','') + "\nVEU
 
 client.on("message", message => {
   if(cmd("lport", message)) {
+    
     message.delete();
     message.delete();
 message.channel.send("PORT LPORT=" + message.content.replace('/lport',''));
@@ -309,73 +310,11 @@ message.channel.send("PORT LPORT=" + message.content.replace('/lport',''));
     message.channel.send("loading.");
     message.delete();
     message.channel.send("loading..");
-    message.delete();
-    message.channel.send("loading...");
-    message.delete();
-    message.channel.send("loading.");
-    message.delete();
-    message.channel.send("loading..");
-    message.delete();
-    message.channel.send("loading...");
-    message.delete();
-    message.channel.send("loading.");
-    message.delete();
-    message.channel.send("loading..");
-    message.delete();
-    message.channel.send("loading...");
-    message.delete();
-    message.channel.send("loading.");
-    message.delete();
-    message.channel.send("loading..");
-    message.delete();
-    message.channel.send("loading...");
-    message.delete();
-    message.channel.send("loading.");
-    message.delete();
-    message.channel.send("loading..");
-    message.delete();
-    message.channel.send("loading...");
-    message.delete();
-    message.channel.send("loading.");
-    message.delete();
-    message.channel.send("loading..");
-    message.delete();
-    message.channel.send("loading...");
-    message.delete();
-    message.channel.send("loading.");
-    message.delete();
-    message.channel.send("loading..");
-    message.delete();
-    message.channel.send("loading...");
-    message.delete();
-    message.channel.send("loading.");
-    message.delete();
-    message.channel.send("loading..");
-    message.delete();
-    message.channel.send("loading...");
-    message.delete();
-    message.channel.send("loading.");
-    message.delete();
-    message.channel.send("loading..");
-    message.delete();
-    message.channel.send("loading...");
-    message.delete();
-    message.channel.send("loading.");
-    message.delete();
-    message.channel.send("loading..");
-    message.delete();
-    message.channel.send("loading...");
-    message.delete();
-    message.channel.send("loading.");
-    message.delete();
-    message.channel.send("loading..");
-    message.delete();
-    message.channel.send("loading...");
-    message.delete();
     message.channel.send("====================");
     message.channel.send("Backdoor créé avec succès !");
     message.channel.send("====================");
-  }
+  
+    }
 });
 
 
@@ -396,3 +335,4 @@ client.on("message", message => {
 message.delete();
   }
 });
+}

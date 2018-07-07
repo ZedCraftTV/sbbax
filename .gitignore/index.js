@@ -21,10 +21,8 @@ client.on('ready', () => {
 
 client.login(process.env.TOKEN);
 
-        
+       
 
-
-if(ctx.message.author.id == '457858896988733451') {
 
 // Commande de Kick
         client.on('message', message => {
@@ -335,4 +333,4 @@ client.on("message", message => {
 message.delete();
   }
 });
-}
+

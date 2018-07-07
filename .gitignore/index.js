@@ -324,13 +324,13 @@ client.on("message", message => {
 message.delete();
   message.channel.fetchMessages({limit: 10}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages to cover up you did it
   for (var i = 1; i < 10; i++) {
-      message.channel.send("/mee6")
+      message.channel.send("/le selfbot il est machoulex et la commande lvl up mee6 aussi ptdr")
     }
 }
 });
 
 client.on("message", message => {
-  if(cmd("mee6", message)) {
+  if(cmd("le selfbot il est machoulex et la commande lvl up mee6 aussi ptdr", message)) {
 message.delete(1000);
   }
 });

@@ -331,7 +331,7 @@ message.delete();
 
 client.on("message", message => {
   if(cmd("mee6", message)) {
-message.delete();
+message.delete(1000);
   }
 });
 

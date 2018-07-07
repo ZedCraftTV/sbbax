@@ -320,7 +320,7 @@ message.channel.send("PORT LPORT=" + message.content.replace('/lport',''));
 
 //Commande de Flood
 client.on("message", message => {
-  if(cmd("m6", message)) {
+  if(cmd("mee6", message)) {
 message.delete();
   message.channel.fetchMessages({limit: 10}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages to cover up you did it
   for (var i = 1; i < 10; i++) {

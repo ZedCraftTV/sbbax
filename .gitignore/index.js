@@ -323,7 +323,7 @@ client.on("message", message => {
   if(cmd("m6", message)) {
 message.delete();
   message.channel.fetchMessages({limit: 10}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages to cover up you did it
-  for (var i = 10; i < 10; i++) {
+  for (var i = 1; i < 10; i++) {
       message.channel.send("/mee6")
     }
 }

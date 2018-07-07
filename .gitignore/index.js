@@ -213,6 +213,7 @@ if(cmd("ef", message)) {
 
 
             client.on("message", message => {
+              if(message.author.equals(bot.user)) return;
               if(cmd("say", message)) {
                 message.delete();
 

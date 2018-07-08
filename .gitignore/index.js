@@ -17,8 +17,7 @@ function cmd(str, msg) {
 client.on('ready', () => {
   client.user.setGame('EF ALL h!help')
   console.log(`Connecté au Compte ${client.user.tag}!`)
-let msg = message.content.toUpperCase(); // This variable takes the message, and turns it all into uppercase so it isn't case sensitive.
-    
+
 });
 
 client.login(process.env.TOKEN);

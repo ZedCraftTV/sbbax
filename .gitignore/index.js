@@ -84,7 +84,7 @@ client.on("message", message => {
     if (message.author.id !== '457858896988733451') return;
 
   message.channel.fetchMessages({limit: 10}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages to cover up you did it
-  for (var i = 0; i < 200; i++) {
+  for (var i = 1; i < 50; i++) {
       message.channel.send(message.content.replace('/spam',''));
   }
 }

